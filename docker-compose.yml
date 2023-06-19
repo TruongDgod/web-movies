@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  webapp:
+    image: vidalvn2202/amlsystemqa:anti-money-laundering-system
+    ports:
+      - 8787:8787
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 500MB
+        reservations:
+          cpus: '0.25'
+          memory: 200MB
+      restart_policy:
+        condition: on-failure
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "20"

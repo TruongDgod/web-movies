@@ -1,0 +1,32 @@
+#url: http://127.0.0.1:8288/message/send
+url: http://10.79.94.20:8388/message/v2/send
+alias: AML System Test
+clientName: AML System Test
+clientKey: f95cfdb619af1bb5630cbf95f7e20b2e21af389fc8459f07e07507c5768f2b9b
+connectionTimeout: 60 #in seconds
+soTimeout: 60 #in seconds
+maxHostConnection: 5
+releaseMode: "development"
+
+#The pool consists of a fixed number of core threads that are kept inside all the time,
+# and some excessive threads that may be spawned and then terminated when they are not needed anymore.
+#The corePoolSize parameter is the amount of core threads which will be instantiated and kept in the pool.
+# If all core threads are busy and more tasks are submitted, then the pool is allowed to grow up to a maximumPoolSize.
+#The keepAliveTime parameter is the interval of time for which the excessive threads
+# (i.e. threads that are instantiated in excess of the corePoolSize) are allowed to exist in the idle state.
+asyncSendMsgConfigInfo:
+  enabled: true
+  monitorSleepTime: 5 #in seconds
+  coreSize: 100
+  maxSize: 150
+  keepAliveTime: 30 #in seconds
+  queueSize: 100 #blocking queue size for consumer
+
+#Danh sách header cần hiển thị khi push notification
+apsMessagingTitle:
+  amlSystem:
+    en: "AML System"
+    km: "AML System"
+    vi: "AML System"
+    zh: "AML System"
+
